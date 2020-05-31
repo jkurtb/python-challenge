@@ -20,13 +20,12 @@ with open(csvpath) as csvfile:
             candidate_info[row[2]] += 1
         else:
             candidate_info[row[2]] = 1
-    
-
-    #check results of dictionary
-    print(candidate_info.items())
-
 
 print("Election Results")
 print("---------------------------")
 print(f"Total Votes: {total_votes}")
+print("---------------------------")
+for key, value in candidate_info.items():
+    print(f"{key} : ({value})")
+
 
