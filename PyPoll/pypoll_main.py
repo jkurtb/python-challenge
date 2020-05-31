@@ -24,6 +24,9 @@ with open(csvpath) as csvfile:
 
     #check results of dictionary
     print(candidate_info.items())
-    print(total_votes)
 
+
+print("Election Results")
+print("---------------------------")
+print(f"Total Votes: {total_votes}")
 
