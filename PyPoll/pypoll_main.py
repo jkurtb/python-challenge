@@ -4,7 +4,7 @@ import csv
 #Set a relative file path
 csvpath = os.path.join("Resources", "election_data.csv")
 
-#Define initial counter & empty dictionaries
+#Define initial counter, variable & empty dictionaries
 total_votes = 0
 candidate_info = {}
 percent_vote = {}
@@ -29,7 +29,7 @@ with open(csvpath) as csvfile:
     for key, value in candidate_info.items():
         percent_vote[key] = "{:.3f}".format((value/total_votes)*100)
 
-#Determine the winner based on highest votes
+#Determine the winner based on greatest votes
     for key in candidate_info.keys():
         if candidate_info[key] > winner_vote:
             winner = key
@@ -45,5 +45,18 @@ for key, value in candidate_info.items():
 print("---------------------------")
 print(f"Winner: {winner}")
 print("---------------------------")
+
+#Export the analysis/results into a text file
+file_to_output = os.path.join("analysis", "PyPoll_Analysis")
+with open(file_to_output, "w", newline="") as txtfile: 
+        txtfile.write("Election Results\n")
+        txtfile.write("---------------------------")
+        txtfile.write(f"Total Votes: {total_votes}")
+        txtfile.write("---------------------------")
+        for key, value in candidate_info.items():
+            txtfile.write(f"{key}: {percent_vote[key]}% ({value})")
+        txtfile.write("---------------------------")
+        txtfile.write(f"Winner: {winner}")
+        txtfile.write("---------------------------")
 
 
