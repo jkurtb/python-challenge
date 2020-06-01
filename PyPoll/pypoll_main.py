@@ -50,13 +50,15 @@ print("---------------------------")
 file_to_output = os.path.join("analysis", "PyPoll_Analysis")
 with open(file_to_output, "w", newline="") as txtfile: 
         txtfile.write("Election Results\n")
-        txtfile.write("---------------------------")
-        txtfile.write(f"Total Votes: {total_votes}")
-        txtfile.write("---------------------------")
+        txtfile.write("---------------------------\n")
+        txtfile.write(f"Total Votes: {total_votes}\n")
+        txtfile.write("---------------------------\n")
         for key, value in candidate_info.items():
-            txtfile.write(f"{key}: {percent_vote[key]}% ({value})")
-        txtfile.write("---------------------------")
-        txtfile.write(f"Winner: {winner}")
-        txtfile.write("---------------------------")
+            txtfile.write(f"{key}: {percent_vote[key]}% ({value})\n")
+        txtfile.write("---------------------------\n")
+        txtfile.write(f"Winner: {winner}\n")
+        txtfile.write("---------------------------\n")
+    
+
 
 
