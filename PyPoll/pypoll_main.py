@@ -24,7 +24,8 @@ with open(csvpath) as csvfile:
             candidate_info[row[2]] = 1
 
     for key, value in candidate_info.items():
-        percent_vote[key] = round((value/total_votes)*100,3)
+        percent_vote[key] = "{:.3f}".format((value/total_votes)*100)
+
 
 
 
